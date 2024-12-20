@@ -1,4 +1,4 @@
-name: apply infra
+name: destroy infra
 on: 
   workflow_dispatch:
 jobs:
