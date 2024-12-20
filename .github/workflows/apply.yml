@@ -3,10 +3,21 @@ on:
   workflow_dispatch:
 jobs:
   create_infra:
+    permissions:
+      id-token: write
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: get code
         uses: actions/checkout@v4
       - name: install terraform
         uses: hashicorp/setup-terraform@v2.0.3
+      - name: aws intergation using OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume:arn: ws:iam::736218978384:role/github-oidc-full-perms
+          aws-region: ap-south-1
+      - name: test aws connection
+        run: aws sts get-caller-identity
+          
     
