@@ -1,11 +1,11 @@
 terraform {
-  #   backend "s3" {
-  #     bucket = "tfstate1224"
-  #     key    = "terraform_state_store"
-  #     region = "ap-south-1"
-  #     dynamodb_table = "tfstate-locking"
-  #     encrypt = true
-  #   }
+    backend "s3" {
+      bucket = "tfstate1224"
+      key    = "terraform_state_store"
+      region = "ap-south-1"
+      dynamodb_table = "tfstate-locking"
+      encrypt = true
+    }
   required_providers {
     aws = {
       source  = "hashicorp/aws"

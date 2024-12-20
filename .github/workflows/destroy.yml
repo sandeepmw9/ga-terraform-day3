@@ -17,13 +17,11 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::736218978384:role/github-oidc-full-perms
           aws-region: ap-south-1
-      - name: initialize&format
-        run: |
-          terraform init
-          terraform fmt
-      - name: plan_apply
-        run: terraform plan -out myplan
-      - name: apply_plan
+      - name: initialize
+        run: terraform init
+      - name: plan_destroy
+        run: terraform plan -destroy -out myplan
+      - name: apply_destroy
         run: terraform apply myplan
           
     
