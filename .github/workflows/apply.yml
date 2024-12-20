@@ -13,9 +13,9 @@ jobs:
       - name: install terraform
         uses: hashicorp/setup-terraform@v2.0.3
       - name: aws intergation using OIDC
-        uses: aws-actions/configure-aws-credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume:arn: arn:aws:iam::736218978384:role/github-oidc-full-perms
+          role-to-assume: arn:aws:iam::736218978384:role/github-oidc-full-perms
           aws-region: ap-south-1
       - name: test aws connection
         run: aws sts get-caller-identity
